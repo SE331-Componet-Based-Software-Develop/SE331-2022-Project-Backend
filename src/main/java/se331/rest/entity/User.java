@@ -61,7 +61,8 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Authority> authorities = new ArrayList<>();
 
-
+    @OneToOne
+    Doctor doctor;
 
 
 }

@@ -13,8 +13,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 import se331.rest.entity.JwtUser;
+import se331.rest.entity.User;
 import se331.rest.repository.UserRepository;
 import se331.rest.util.JwtTokenUtil;
+import se331.rest.util.LabMapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -57,8 +59,9 @@ public class AuthenticationRestController {
         Map result = new HashMap();
         result.put("token", token);
 //        User user=userRepository.findById(((JwtUser)userDetails).getId()).orElse(null);
-//        if (user.getOrganizer()!=null) {
-//            result.put("user",user.getOrganizer());
+//        System.out.println(user);
+//        if (user.getDoctor()!=null) {
+//            result.put("user", LabMapper.INSTANCE.getDoctorDTO(user.getDoctor()));
 //        }
         return ResponseEntity.ok(result);
     }

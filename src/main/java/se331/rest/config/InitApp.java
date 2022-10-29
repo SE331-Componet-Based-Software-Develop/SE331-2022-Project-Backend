@@ -377,6 +377,12 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doctorRepository.save(dor4);
 
         addUser();
+        dor1.setUser(user1);
+        user1.setDoctor(dor1);
+        dor2.setUser(user2);
+        user2.setDoctor(dor2);
+        dor3.setUser(user3);
+        user3.setDoctor(dor3);
     }
     User user1,user2,user3;
     private void addUser(){
