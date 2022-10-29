@@ -379,17 +379,19 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doctorRepository.save(dor4);
 
         addUser();
+
+
         dor1.setUser(user1);
         user1.setDoctor(dor1);
-        dor2.setUser(user2);
-        user2.setDoctor(dor2);
+        p1.setUser(user2);
+        user2.setPatient(p1);
         dor3.setUser(user3);
         user3.setDoctor(dor3);
     }
     User user1,user2,user3;
     private void addUser(){
         PasswordEncoder encoder=new BCryptPasswordEncoder();
-        Authority authUser=Authority.builder().name(AuthorityName.ROLE_USER).build();
+        Authority authPatient=Authority.builder().name(AuthorityName.ROLE_PATIENT).build();
         Authority authAdmin=Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
         Authority authDoctor=Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
         user1=User.builder()
@@ -411,22 +413,19 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                         .atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
         user3=User.builder()
-                .username ("disableUser")
-                .password (encoder.encode ( "disableUser" ) ).firstname ( "admin")
+                .username ("001")
+                .password (encoder.encode ( "123456" ) ).firstname ( "admin")
                 .lastname ("disableUser")
                 .email ( "disableUser@user.com")
                 .enabled (true)
                 .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
                         .atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .build();
-        authorityRepository.save(authUser);
+        authorityRepository.save(authPatient);
         authorityRepository.save(authAdmin);
         authorityRepository.save(authDoctor);
-        user1.getAuthorities().add(authUser);
         user1.getAuthorities().add(authAdmin);
-        user2.getAuthorities().add(authUser);
-        user2.getAuthorities().add(authUser);
-        user3.getAuthorities().add(authAdmin);
+        user2.getAuthorities().add(authPatient);
         user3.getAuthorities().add(authDoctor);
         userRepository.save(user1);
         userRepository.save(user2);

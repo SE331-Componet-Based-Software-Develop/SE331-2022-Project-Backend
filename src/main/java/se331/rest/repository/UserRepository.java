@@ -6,4 +6,5 @@ import se331.rest.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
+
 }

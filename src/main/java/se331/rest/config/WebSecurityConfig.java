@@ -41,9 +41,10 @@ public class WebSecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh").permitAll()
-                .antMatchers(HttpMethod.GET,"/event").permitAll()
+                .antMatchers(HttpMethod.GET,"/patients").permitAll()
+                .antMatchers(HttpMethod.GET,"/doctors").hasAnyRole()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/event").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/doctor").permitAll()
                 .antMatchers(HttpMethod.POST,"/comment").hasRole("DOCTOR")
                 .anyRequest()
                 .authenticated();
