@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import se331.rest.entity.*;
 import se331.rest.repository.*;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     UserRepository userRepository;
 
     @Override
+    @Transactional
     public void onApplicationEvent(ApplicationReadyEvent event) {
         Doctor dor1;
         dor1 = doctorRepository.save(Doctor.builder()

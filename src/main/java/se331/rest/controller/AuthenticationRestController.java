@@ -56,13 +56,13 @@ public class AuthenticationRestController {
         // Reload password post-security so we can generate token
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails);
+
         Map result = new HashMap();
         result.put("token", token);
-//        User user=userRepository.findById(((JwtUser)userDetails).getId()).orElse(null);
-//        System.out.println(user);
-//        if (user.getDoctor()!=null) {
-//            result.put("user", LabMapper.INSTANCE.getDoctorDTO(user.getDoctor()));
-//        }
+        User user=userRepository.findById(((JwtUser)userDetails).getId()).orElse(null);
+        if (user.getDoctor()!=null) {
+            result.put("user", LabMapper.INSTANCE.getDoctorDTO(user.getDoctor()));
+        }
         return ResponseEntity.ok(result);
     }
 
