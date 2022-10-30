@@ -6,8 +6,19 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import se331.rest.entity.*;
-import se331.rest.repository.*;
+import se331.rest.entity.Comment;
+import se331.rest.entity.Doctor;
+import se331.rest.entity.Patient;
+import se331.rest.entity.Vaccine;
+import se331.rest.repository.CommentRepository;
+import se331.rest.repository.DoctorRepository;
+import se331.rest.repository.PatientRepository;
+import se331.rest.repository.VaccineRepository;
+import se331.rest.security.entity.Authority;
+import se331.rest.security.entity.AuthorityName;
+import se331.rest.security.entity.User;
+import se331.rest.security.repository.AuthorityRepository;
+import se331.rest.security.repository.UserRepository;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -30,79 +41,112 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     AuthorityRepository authorityRepository;
     @Autowired
     UserRepository userRepository;
-
+    User user1 = new User();
+    User user2 = new User();
+    User user3 = new User();
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        Doctor dor1;
+        Doctor dor1 = new Doctor();
+        List<String> dor1image = new ArrayList<>();
+        dor1image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142052952-d1.jpg?generation=1667110855185130&alt=media"));
+
         dor1 = doctorRepository.save(Doctor.builder()
-                .name("Mingming")
-                .sur_name("Jia")
-                .age("21")
-                .hometown("Sc")
+                .name("Si")
+                .sur_name("Li")
+                .age("40")
+                .hometown("DC")
+                .imageUrl(dor1image)
                 .build());
+        List<String> dor2image = new ArrayList<>();
+        dor2image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142107634-d2.jpg?generation=1667110869830017&alt=media"));
         Doctor dor2;
         dor2 = doctorRepository.save(Doctor.builder()
-                .name("Zhenxv")
-                .sur_name("Wang")
-                .age("21")
+                .name("Hua")
+                .sur_name("Li")
+                .age("50")
                 .hometown("Ningxia")
+                .imageUrl(dor2image)
                 .build());
+        List<String> dor3image = new ArrayList<>();
+        dor3image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142125662-d3.jpg?generation=1667110887855094&alt=media"));
         Doctor dor3;
         dor3 = doctorRepository.save(Doctor.builder()
                 .name("San")
                 .sur_name("Zhang")
                 .age("56")
                 .hometown("Beijing")
+                .imageUrl(dor3image)
                 .build());
+        List<String> dor4image = new ArrayList<>();
+        dor4image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142140381-d4.jpg?generation=1667110902548368&alt=media"));
         Doctor dor4;
         dor4 = doctorRepository.save(Doctor.builder()
                 .name("Wu")
                 .sur_name("Wang")
                 .age("67")
                 .hometown("Shanghai")
+                .imageUrl(dor4image)
                 .build());
         Patient p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12;
+        List<String> p1image = new ArrayList<>();
+        p1image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20140520215-1.jpg?generation=1667109925717140&alt=media"));
         p1 = patientRepository.save(Patient.builder()
-                .name("Mingming Jia")
+                .name("Shengzhe")
                 .sur_name("Huang")
                 .age("20")
                 .hometown("Zhejiang_China")
                 .doctor(dor1)
+                .imageUrl(p1image)
                 .build());
+        List<String> p2image = new ArrayList<>();
+        p2image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141322210-2.jpg?generation=1667110405323330&alt=media"));
         p2 = patientRepository.save(Patient.builder()
                 .name("Haolong")
                 .sur_name("Huai")
                 .age("21")
                 .hometown("Henan_China")
                 .doctor(dor1)
+                .imageUrl(p2image)
                 .build());
+        List<String> p3image = new ArrayList<>();
+        p3image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141345340-3.jpg?generation=1667110427551486&alt=media"));
         p3 = patientRepository.save(Patient.builder()
                 .name("Yaqi")
                 .sur_name("Ren")
                 .age("23")
                 .hometown("Henan_China")
                 .doctor(dor1)
+                .imageUrl(p3image)
                 .build());
+        List<String> p4image = new ArrayList<>();
+        p4image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141404425-4.jpg?generation=1667110446677999&alt=media"));
         p4 = patientRepository.save(Patient.builder()
                 .name("Yangyang")
                 .sur_name("Ren")
                 .age("19")
                 .hometown("Ningxia_China")
                 .doctor(dor2)
+                .imageUrl(p4image)
                 .build());
+        List<String> p5image = new ArrayList<>();
+        p5image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141421413-5.jpg?generation=1667110463705382&alt=media"));
         p5 = patientRepository.save(Patient.builder()
                 .name("Yifan")
                 .sur_name("Yao")
                 .age("18")
                 .hometown("Jiangsu_China")
                 .doctor(dor2)
+                .imageUrl(p5image)
                 .build());
+        List<String> p6image = new ArrayList<>();
+        p6image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141435060-6.jpg?generation=1667110477406833&alt=media"));
         p6 = patientRepository.save(Patient.builder()
                 .name("Chong")
                 .sur_name("Zeng")
                 .age("20")
                 .hometown("Shanghai_China")
                 .doctor(dor2)
+                .imageUrl(p6image)
                 .build());
         p7 = patientRepository.save(Patient.builder()
                 .name("Yongwei")
@@ -348,7 +392,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         dor1.getPatients().add(p1);
         dor1.getPatients().add(p2);
         dor1.getPatients().add(p3);
-        dor2.getPatients().add(p4);
+//        dor2.getPatients().add(p4);
         dor2.getPatients().add(p5);
         dor2.getPatients().add(p6);
         dor3.getPatients().add(p7);
@@ -376,50 +420,71 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         doctorRepository.save(dor3);
         doctorRepository.save(dor4);
 
+
         addUser();
+        dor1.setUser(user1);
+        user1.setDoctor(dor1);
+
+        dor2.setUser(user2);
+        user2.setDoctor(dor2);
+
+        p1.setUser(user3);
+        user3.setPatient(p1);
+
+        userRepository.save(user1);
+        userRepository.save(user2);
+        userRepository.save(user3);
+
+        doctorRepository.AddUser(user1.getId(),dor1.getId());
+
+        doctorRepository.AddUser(user2.getId(),dor2.getId());
+        patientRepository.AddUser(user3.getId(),p1.getId());
+//        patientRepository.save(p1);
     }
-    User user1,user2,user3;
+
     private void addUser(){
-        PasswordEncoder encoder=new BCryptPasswordEncoder();
-        Authority authUser=Authority.builder().name(AuthorityName.ROLE_USER).build();
-        Authority authAdmin=Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
-        Authority authDoctor=Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
-        user1=User.builder()
-                .username ("admin")
-                .password (encoder.encode ( "admin" ) ).firstname ( "admin")
-                .lastname ("admin")
-                .email ( "admin@admin.com")
-                .enabled (true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
-                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        Authority authDoctor = Authority.builder().name(AuthorityName.ROLE_DOCTOR).build();
+        Authority authPatient = Authority.builder().name(AuthorityName.ROLE_PATIENT).build();
+        Authority authAdmin = Authority.builder().name(AuthorityName.ROLE_ADMIN).build();
+        user1 = User.builder()
+                .username ( "admin")
+                .password ( encoder.encode ( "admin" ) )
+                .firstname ( "admin" )
+                .lastname ( "admin")
+                .email ( "admin@admin.com" ).enabled (true)
+                .lastPasswordResetDate(Date.from(LocalDate.of (2021,01,
+                        01).atStartOfDay(ZoneId.systemDefault ()).toInstant()))
                 .build();
-        user2=User.builder()
-                .username ("user")
-                .password (encoder.encode ( "user" ) ).firstname ( "admin")
-                .lastname ("user")
-                .email ( "enabled@user.com")
-                .enabled (true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
-                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+
+
+        user2 = User.builder()
+                .username ( "doctor")
+                .password ( encoder.encode ( "doctor" ) )
+                .firstname ( "doctor" )
+                .lastname ( "doctor")
+                .email ( "enabled@doctor.com" ).enabled (true)
+                .lastPasswordResetDate(Date.from(LocalDate.of (2021,01,
+                        01).atStartOfDay(ZoneId.systemDefault ()).toInstant()))
                 .build();
-        user3=User.builder()
-                .username ("disableUser")
-                .password (encoder.encode ( "disableUser" ) ).firstname ( "admin")
-                .lastname ("disableUser")
-                .email ( "disableUser@user.com")
-                .enabled (true)
-                .lastPasswordResetDate(Date.from(LocalDate.of(2021,01,01)
-                        .atStartOfDay(ZoneId.systemDefault()).toInstant()))
+
+        user3 = User.builder()
+                .username ( "patient")
+                .password ( encoder.encode ( "patient" ) )
+                .firstname ( "patient" )
+                .lastname ( "patient")
+                .email ( "enableUser@patient.com" ).enabled (true)
+                .lastPasswordResetDate(Date.from(LocalDate.of (2021,01,
+                        01).atStartOfDay(ZoneId.systemDefault ()).toInstant()))
                 .build();
-        authorityRepository.save(authUser);
         authorityRepository.save(authAdmin);
         authorityRepository.save(authDoctor);
-        user1.getAuthorities().add(authUser);
+        authorityRepository.save(authPatient);
         user1.getAuthorities().add(authAdmin);
-        user2.getAuthorities().add(authUser);
-        user2.getAuthorities().add(authUser);
-        user3.getAuthorities().add(authAdmin);
-        user3.getAuthorities().add(authDoctor);
+        user1.getAuthorities().add(authDoctor);
+        user1.getAuthorities().add(authPatient);
+        user2.getAuthorities().add(authDoctor);
+        user3.getAuthorities().add(authPatient);
         userRepository.save(user1);
         userRepository.save(user2);
         userRepository.save(user3);

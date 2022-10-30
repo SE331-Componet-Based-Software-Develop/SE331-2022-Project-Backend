@@ -9,4 +9,5 @@ public interface CommentService {
     Comment getComment(Long id);
     List<Comment> getComments();
     Comment save(Comment comment,Long did,Long pid);
+    List<Comment> FindByPid(Long pid);
 }

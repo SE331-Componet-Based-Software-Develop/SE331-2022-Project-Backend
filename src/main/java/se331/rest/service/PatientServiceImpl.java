@@ -33,4 +33,9 @@ public class PatientServiceImpl implements PatientService{
     public Patient save(Patient patient) {
         return patientDao.save(patient);
     }
+
+    @Override
+    public Page<Patient> getByDoctorId(Long doctor_id, Integer pageSize, Integer page) {
+        return patientDao.getByDoctorId(doctor_id,pageSize, page);
+    }
 }

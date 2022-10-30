@@ -3,7 +3,7 @@ spring:
     active:
       - db
   datasource:
-    url: jdbc:mysql://localhost:3306/termProject?createDatabaseIfNotExist=true&autoReconnect=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/project?createDatabaseIfNotExist=true&autoReconnect=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: password
@@ -17,7 +17,7 @@ spring:
       max-file-size: 10MB
 jwt:
   header: Authorization
-  secret: "QfTjWnZr4u7x!z%C*F-JaNdRgUkXp2s5v8y/B?D(G+KbPeShVmYq3t6w9z$C&F)H"
+  secret: "v8y/B?E(H+MbQeThWmZq3t6w9z$C&F)J@NcRfUjXn2r5u7x!A%D*G-KaPdSgVkYp"
   expiration: 604800
   route:
     authentication:

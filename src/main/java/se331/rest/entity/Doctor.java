@@ -1,6 +1,7 @@
 package se331.rest.entity;
 
 import lombok.*;
+import se331.rest.security.entity.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -30,5 +31,7 @@ public class Doctor {
     @OneToMany
     @Builder.Default
     List<Comment> comments = new ArrayList<>();
+    @OneToOne
+    User user;
 
 }

@@ -2,9 +2,13 @@ package se331.rest.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
+import se331.rest.entity.Doctor;
 import se331.rest.entity.Patient;
 import se331.rest.entity.Vaccine;
+import se331.rest.repository.DoctorRepository;
 import se331.rest.repository.PatientRepository;
 import se331.rest.repository.VaccineRepository;
 
@@ -16,6 +20,8 @@ public class VaccineDaoImpl implements VaccineDao{
     VaccineRepository vaccineRepository;
     @Autowired
     PatientRepository patientRepository;
+    @Autowired
+    DoctorRepository doctorRepository;
 
     @Override
     public Integer getVaccineSize() {
@@ -28,16 +34,16 @@ public class VaccineDaoImpl implements VaccineDao{
     }
 
     @Override
-    public List<Vaccine> getVaccines() {
-        return vaccineRepository.findAll();
+    public Page<Vaccine> getVaccines(Integer pageSize, Integer page) {
+        return vaccineRepository.findAll(PageRequest.of(page-1,pageSize));
     }
 
     @Override
-    public Vaccine save(Vaccine vaccine,Long id){
+    public Vaccine save(Vaccine vaccine,Long pid,Long did){
         Vaccine v = new Vaccine();
         Patient patient = new Patient();
         try {
-            patient = patientRepository.findById(id).orElse(null);
+            patient = patientRepository.findById(pid).orElse(null);
             v = patient.getVaccineinfo();
             if (vaccine.getVaccined_status().equals("Not vaccinated")) {
                 v.setPatient(patient);
@@ -56,6 +62,12 @@ public class VaccineDaoImpl implements VaccineDao{
                 v.setSeconddose_time(vaccine.getSeconddose_time());
                 v.setPatient(patient);
                 patient.setVaccineinfo(v);
+            }
+            if (patient.getDoctor()==null){
+                Doctor doctor = doctorRepository.findById(did).orElse(null);
+                doctor.getPatients().add(patient);
+                patient.setDoctor(doctor);
+                doctorRepository.save(doctor);
             }
         }catch (Exception e){
             e.printStackTrace();

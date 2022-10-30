@@ -10,4 +10,5 @@ public interface CommentDao {
     List<Comment> getComments();
     Comment save(Comment comment,Long did,Long pid);
 
+    List<Comment> FindByPid(Long pid);
 }
