@@ -8,5 +8,4 @@ public interface DoctorDao {
     Page<Doctor> getDoctors(Integer pageSize,Integer page);
     Doctor getDoctor(Long id);
     Doctor save(Doctor doctor);
-
 }

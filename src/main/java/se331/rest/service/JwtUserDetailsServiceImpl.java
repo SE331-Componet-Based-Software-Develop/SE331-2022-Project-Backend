@@ -1,13 +1,13 @@
-package se331.rest.security.service;
+package se331.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import se331.rest.security.entity.User;
-import se331.rest.security.repository.UserRepository;
-import se331.rest.security.util.JwtUserFactory;
+import se331.rest.entity.User;
+import se331.rest.repository.UserRepository;
+import se331.rest.util.JwtUserFactory;
 
 
 /**
@@ -29,5 +29,4 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
             return JwtUserFactory.create(user);
         }
     }
-
 }

@@ -8,5 +8,4 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment,Long> {
     List<Comment> findAll();
 //    List<Comment> findByDoctor(String doctor);
-    List<Comment> findByPatientId(Long pid);
 }

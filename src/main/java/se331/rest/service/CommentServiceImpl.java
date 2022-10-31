@@ -30,9 +30,4 @@ public class CommentServiceImpl implements CommentService{
     public Comment save(Comment comment,Long did,Long pid) {
         return commentDao.save(comment,did,pid);
     }
-
-    @Override
-    public List<Comment> FindByPid(Long pid) {
-        return commentDao.FindByPid(pid);
-    }
 }

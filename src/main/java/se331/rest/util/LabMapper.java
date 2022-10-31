@@ -5,7 +5,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import se331.rest.entity.*;
 
-import javax.print.Doc;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,10 +21,4 @@ public interface LabMapper {
 
     VaccineDTO getVaccineDTO(Vaccine vaccine);
     List<VaccineDTO> getVaccineDTO(List<Vaccine> vaccines);
-
-    @Mapping(target = "authorities", expression = "java(patient.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
-    PatientAuthDTO getPatientAuthDTO(Patient patient);
-
-    @Mapping(target = "authorities", expression = "java(doctor.getUser().getAuthorities().stream().map(auth -> auth.getName().name()).collect(Collectors.toList()))")
-    DoctorAuthDTO getDoctorAuthDTO(Doctor doctor);
 }

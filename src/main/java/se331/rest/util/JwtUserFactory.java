@@ -1,10 +1,10 @@
-package se331.rest.security.util;
+package se331.rest.util;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import se331.rest.security.entity.Authority;
-import se331.rest.security.entity.JwtUser;
-import se331.rest.security.entity.User;
+import se331.rest.entity.Authority;
+import se331.rest.entity.JwtUser;
+import se331.rest.entity.User;
 
 import java.util.List;
 import java.util.stream.Collectors;

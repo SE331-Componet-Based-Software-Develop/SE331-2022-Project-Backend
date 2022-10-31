@@ -1,4 +1,4 @@
-package se331.rest.security.entity;
+package se331.rest.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import se331.rest.entity.Doctor;
-import se331.rest.entity.Patient;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -64,12 +62,7 @@ public class User {
     private List<Authority> authorities = new ArrayList<>();
 
     @OneToOne
-    Patient patient;
-
-    @OneToOne
     Doctor doctor;
 
-    @ElementCollection
-    List<String> imageUrl;
 
 }

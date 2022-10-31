@@ -1,13 +1,11 @@
-package se331.rest.security.entity;
+package se331.rest.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
-
 import java.util.List;
 
 @Entity

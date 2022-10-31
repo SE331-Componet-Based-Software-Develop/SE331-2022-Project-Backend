@@ -1,4 +1,4 @@
-package se331.rest.security.config;
+package se331.rest.config;
 
 
 import lombok.RequiredArgsConstructor;
@@ -9,26 +9,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import se331.rest.security.controller.JwtAuthenticationEntryPoint;
-import se331.rest.security.controller.JwtAuthenticationTokenFilter;
+import se331.rest.controller.JwtAuthenticationEntryPoint;
+import se331.rest.controller.JwtAuthenticationTokenFilter;
 
 
 @Configuration
@@ -48,19 +41,10 @@ public class WebSecurityConfig {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests()
                 .antMatchers("/auth/**",  "/refresh").permitAll()
-                .antMatchers(HttpMethod.GET,"/patient*").permitAll()
-                .antMatchers(HttpMethod.GET,"/patient/*").permitAll()
-                .antMatchers(HttpMethod.GET,"/doctor*").permitAll()
-                .antMatchers(HttpMethod.GET,"/doctor/*").permitAll()
-                .antMatchers(HttpMethod.GET,"/vaccine*").permitAll()
-                .antMatchers(HttpMethod.GET,"/comment*").permitAll()
-                .antMatchers(HttpMethod.GET,"/userwithnoauth*").permitAll()
+                .antMatchers(HttpMethod.GET,"/event").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers(HttpMethod.POST,"/comment").permitAll()
-                .antMatchers(HttpMethod.POST,"/vaccine").permitAll()
-                .antMatchers(HttpMethod.POST,"/uploadFile").permitAll()
-                .antMatchers(HttpMethod.POST,"/register").permitAll()
-                .antMatchers(HttpMethod.POST,"/setrole").permitAll()
+                .antMatchers(HttpMethod.POST,"/event").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/comment").hasRole("DOCTOR")
                 .anyRequest()
                 .authenticated();
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
@@ -70,11 +54,11 @@ public class WebSecurityConfig {
 
 
 
-//    @Bean
-//    ServerHttpSecurity serverHttpSecurity() {
-//
-//        return ServerHttpSecurity.http();
-//    }
+    @Bean
+    ServerHttpSecurity serverHttpSecurity() {
+
+        return ServerHttpSecurity.http();
+    }
 
 
 

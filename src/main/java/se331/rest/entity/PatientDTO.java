@@ -22,7 +22,7 @@ public class PatientDTO {
     String sur_name;
     String age;
     String hometown;
-    PatientVaccineDTO vaccineinfo;
+    VaccineDTO vaccineinfo;
     List<String> imageUrl;
     PatientDoctorDTO doctor;
     List<CommentDTO> comments = new ArrayList<>();

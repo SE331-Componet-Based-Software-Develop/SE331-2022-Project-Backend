@@ -9,5 +9,4 @@ public interface PatientService {
     Page<Patient> getPatientsVaccineNot(String NotVaccinated,Integer pageSize, Integer page);
     Patient getPatient(Long id);
     Patient save(Patient patient);
-    Page<Patient> getByDoctorId(Long doctor_id, Integer pageSize, Integer page);
 }

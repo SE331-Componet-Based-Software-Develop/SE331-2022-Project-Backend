@@ -1,7 +1,6 @@
 package se331.rest.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import se331.rest.dao.VaccineDao;
 import se331.rest.entity.Vaccine;
@@ -23,13 +22,13 @@ public class VaccineServiceImpl implements VaccineService{
     }
 
     @Override
-    public Page<Vaccine> getVaccines(Integer pageSize, Integer page) {
-        return vaccineDao.getVaccines(pageSize, page);
+    public List<Vaccine> getVaccines() {
+        return vaccineDao.getVaccines();
     }
 
 
     @Override
-    public Vaccine save(Vaccine vaccine,Long pid,Long did) {
-        return vaccineDao.save(vaccine,pid,did);
+    public Vaccine save(Vaccine vaccine,Long id) {
+        return vaccineDao.save(vaccine,id);
     }
 }
