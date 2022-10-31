@@ -1,14 +1,15 @@
-package se331.rest.controller;
+package se331.rest.security.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Component
 @RequiredArgsConstructor

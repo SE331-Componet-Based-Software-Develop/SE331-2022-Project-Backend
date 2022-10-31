@@ -5,14 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentDTO {
+public class PatientVaccineDTO {
     Long id;
-    String comment;
-    CommentDoctorDTO doctor;
+    String vaccined_status;
+    String firstdose_name;
+    String firstdose_time;
+    String seconddose_name;
+    String seconddose_time;
 }

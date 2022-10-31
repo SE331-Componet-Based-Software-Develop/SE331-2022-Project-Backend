@@ -1,4 +1,4 @@
-package se331.rest.util;
+package se331.rest.security.util;
 
 
 import io.jsonwebtoken.Claims;
@@ -7,11 +7,13 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import se331.rest.entity.JwtUser;
+import se331.rest.security.entity.JwtUser;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.io.Serializable;
 import java.security.Key;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

@@ -5,14 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentDTO {
+public class DoctorAuthDTO {
     Long id;
-    String comment;
-    CommentDoctorDTO doctor;
+    String name;
+    String sur_name;
+    String age;
+    String hometown;
+    List<String> authorities;
 }

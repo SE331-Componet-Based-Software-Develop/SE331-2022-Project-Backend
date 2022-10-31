@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se331.rest.security.entity.User;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.ManyToOne;
@@ -16,14 +17,11 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientDTO {
+public class PatientAuthDTO {
     Long id;
     String name;
     String sur_name;
     String age;
     String hometown;
-    PatientVaccineDTO vaccineinfo;
-    List<String> imageUrl;
-    PatientDoctorDTO doctor;
-    List<CommentDTO> comments = new ArrayList<>();
+    List<String> authorities;
 }

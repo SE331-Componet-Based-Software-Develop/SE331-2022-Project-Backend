@@ -1,4 +1,4 @@
-package se331.rest.entity;
+package se331.rest.security.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
