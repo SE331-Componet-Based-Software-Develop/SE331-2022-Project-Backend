@@ -4,6 +4,7 @@ import se331.rest.entity.Comment;
 
 import java.util.List;
 
+
 public interface CommentService {
     Integer getCommentSize();
     Comment getComment(Long id);
