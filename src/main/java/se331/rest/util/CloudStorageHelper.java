@@ -22,9 +22,11 @@ import java.util.Date;
 public class CloudStorageHelper {
     private static Storage storage=null;
     static {
-        InputStream serviceAccount=null;
-        try{
-            serviceAccount=new ClassPathResource("firebase-key.json").getInputStream();
+
+        InputStream serviceAccount =
+                null;
+        try {
+            serviceAccount = new ClassPathResource("firebase-key.json").getInputStream();
             storage = StorageOptions.newBuilder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setProjectId("imageupload-64688")

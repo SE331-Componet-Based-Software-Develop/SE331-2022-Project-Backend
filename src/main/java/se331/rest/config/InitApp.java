@@ -20,7 +20,6 @@ import se331.rest.security.entity.User;
 import se331.rest.security.repository.AuthorityRepository;
 import se331.rest.security.repository.UserRepository;
 
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -46,7 +45,6 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     User user2 = new User();
     User user3 = new User();
     @Override
-    @Transactional
     public void onApplicationEvent(ApplicationReadyEvent event) {
         Doctor dor1 = new Doctor();
         List<String> dor1image = new ArrayList<>();
