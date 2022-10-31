@@ -34,6 +34,7 @@ public class ProjectApplication {
 				registry.addMapping("/**")
 						.allowedOrigins("http://localhost:3000")
 						.allowedOrigins("http://localhost:4000")
+						.allowedOrigins("http://localhost:80")
 						.exposedHeaders("x-total-count");
 
 			}
