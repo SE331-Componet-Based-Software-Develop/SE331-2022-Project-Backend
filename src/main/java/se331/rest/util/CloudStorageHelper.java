@@ -26,10 +26,10 @@ public class CloudStorageHelper {
         InputStream serviceAccount =
                 null;
         try {
-            serviceAccount = new ClassPathResource("firebase-key.json").getInputStream();
+            serviceAccount = new ClassPathResource("upload.json").getInputStream();
             storage = StorageOptions.newBuilder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .setProjectId("imageupload-64688")
+                    .setProjectId("projectimageupload-96213")
                     .build().getService();
         } catch (IOException e) {
             e.printStackTrace();

@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se331.rest.security.entity.User;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author jmm
- * @version 1.0
- * @date 2022/10/29 21:06
- * @email 2867405686@qq.com
- */
 @Data
 @Builder
 @NoArgsConstructor
@@ -20,5 +20,8 @@ import java.util.List;
 public class PatientAuthDTO {
     Long id;
     String name;
+    String sur_name;
+    String age;
+    String hometown;
     List<String> authorities;
 }

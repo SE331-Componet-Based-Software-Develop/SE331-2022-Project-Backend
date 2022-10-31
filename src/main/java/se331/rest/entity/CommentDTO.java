@@ -14,4 +14,5 @@ import lombok.NoArgsConstructor;
 public class CommentDTO {
     Long id;
     String comment;
+    CommentDoctorDTO doctor;
 }

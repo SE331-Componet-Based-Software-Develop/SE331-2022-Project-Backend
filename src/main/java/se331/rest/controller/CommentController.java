@@ -30,6 +30,17 @@ public class CommentController {
 
     }
 
+    @GetMapping("/commentsbypid")
+    public ResponseEntity<?> getCommentListsByPid(@RequestParam(value = "pid",required = false)Long pid){
+        List<Comment> output;
+        output = commentService.FindByPid(pid);
+        if (output != null)
+            return ResponseEntity.ok(LabMapper.INSTANCE.getCommentDTO(output));
+        else
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"The given id is not found");
+
+    }
+
     @PostMapping("/comment")
     public ResponseEntity<?> addComment(@RequestBody Comment comment,
                                         @RequestParam(value = "did",required = false)Long did,

@@ -57,4 +57,9 @@ public class CommentDaoImpl implements CommentDao{
         patientRepository.save(patient);
         return commentRepository.save(c);
     }
+
+    @Override
+    public List<Comment> FindByPid(Long pid) {
+        return commentRepository.findByPatientId(pid);
+    }
 }
