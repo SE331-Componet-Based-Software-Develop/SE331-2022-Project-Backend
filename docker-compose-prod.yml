@@ -23,5 +23,3 @@ services:
     restart: on-failure
     depends_on:
       - db
-    links:
-      - db
