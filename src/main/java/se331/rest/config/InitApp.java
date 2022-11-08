@@ -48,7 +48,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     public void onApplicationEvent(ApplicationReadyEvent event) {
         Doctor dor1 = new Doctor();
         List<String> dor1image = new ArrayList<>();
-        String x="https://api.cyfan.top/acg";
+        String x="https://picsum.photos/200";
         dor1image.add(x);
         dor1 = doctorRepository.save(Doctor.builder()
                 .name("Mingming")

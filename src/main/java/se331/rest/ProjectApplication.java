@@ -33,7 +33,7 @@ public class ProjectApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("http://localhost:3000","http://localhost:4000","http://192.168.31.209:4000")
+						.allowedOrigins("http://localhost:3000","http://localhost:4000","http://54.91.217.177:80")
 						.exposedHeaders("x-total-count");
 
 			}
