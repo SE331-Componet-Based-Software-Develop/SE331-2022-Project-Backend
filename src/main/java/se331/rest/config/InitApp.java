@@ -48,143 +48,143 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     public void onApplicationEvent(ApplicationReadyEvent event) {
         Doctor dor1 = new Doctor();
         List<String> dor1image = new ArrayList<>();
-        dor1image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142052952-d1.jpg?generation=1667110855185130&alt=media"));
-
+        String x="https://api.cyfan.top/acg";
+        dor1image.add(x);
         dor1 = doctorRepository.save(Doctor.builder()
-                .name("Si")
-                .sur_name("Li")
-                .age("40")
-                .hometown("DC")
+                .name("Mingming")
+                .sur_name("Jia")
+                .age("21")
+                .hometown("Sc")
                 .imageUrl(dor1image)
                 .build());
         List<String> dor2image = new ArrayList<>();
-        dor2image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142107634-d2.jpg?generation=1667110869830017&alt=media"));
+        dor2image.add(x);
         Doctor dor2;
         dor2 = doctorRepository.save(Doctor.builder()
-                .name("Hua")
-                .sur_name("Li")
-                .age("50")
-                .hometown("Ningxia")
-                .imageUrl(dor2image)
+                .name("Ming")
+                .sur_name("Jia")
+                .age("21")
+                .hometown("Sc")
+                .imageUrl(dor1image)
                 .build());
         List<String> dor3image = new ArrayList<>();
-        dor3image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142125662-d3.jpg?generation=1667110887855094&alt=media"));
+        dor3image.add(x);
         Doctor dor3;
         dor3 = doctorRepository.save(Doctor.builder()
-                .name("San")
-                .sur_name("Zhang")
-                .age("56")
-                .hometown("Beijing")
+                .name("Mingming-4")
+                .sur_name("Jia")
+                .age("21")
+                .hometown("Sc")
                 .imageUrl(dor3image)
                 .build());
         List<String> dor4image = new ArrayList<>();
-        dor4image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20142140381-d4.jpg?generation=1667110902548368&alt=media"));
+        dor4image.add(x);
         Doctor dor4;
         dor4 = doctorRepository.save(Doctor.builder()
-                .name("Wu")
-                .sur_name("Wang")
-                .age("67")
-                .hometown("Shanghai")
-                .imageUrl(dor4image)
+                .name("Mingming-4")
+                .sur_name("Jia")
+                .age("21")
+                .hometown("Sc")
+                .imageUrl(dor1image)
                 .build());
         Patient p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12;
         List<String> p1image = new ArrayList<>();
-        p1image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20140520215-1.jpg?generation=1667109925717140&alt=media"));
+        p1image.add(x);
         p1 = patientRepository.save(Patient.builder()
-                .name("Shengzhe")
-                .sur_name("Huang")
+                .name("Zhenxv")
+                .sur_name("Wang")
                 .age("20")
-                .hometown("Zhejiang_China")
+                .hometown("HN")
                 .doctor(dor1)
                 .imageUrl(p1image)
                 .build());
         List<String> p2image = new ArrayList<>();
-        p2image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141322210-2.jpg?generation=1667110405323330&alt=media"));
+        p2image.add(x);
         p2 = patientRepository.save(Patient.builder()
-                .name("Haolong")
-                .sur_name("Huai")
-                .age("21")
-                .hometown("Henan_China")
+                .name("Zhen")
+                .sur_name("Wang")
+                .age("20")
+                .hometown("HN")
                 .doctor(dor1)
-                .imageUrl(p2image)
+                .imageUrl(p1image)
                 .build());
         List<String> p3image = new ArrayList<>();
-        p3image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141345340-3.jpg?generation=1667110427551486&alt=media"));
+        p3image.add(x);
         p3 = patientRepository.save(Patient.builder()
-                .name("Yaqi")
-                .sur_name("Ren")
-                .age("23")
-                .hometown("Henan_China")
+                .name("xv")
+                .sur_name("Wang")
+                .age("20")
+                .hometown("HN")
                 .doctor(dor1)
-                .imageUrl(p3image)
+                .imageUrl(p1image)
                 .build());
         List<String> p4image = new ArrayList<>();
-        p4image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141404425-4.jpg?generation=1667110446677999&alt=media"));
+        p4image.add(x);
         p4 = patientRepository.save(Patient.builder()
-                .name("Yangyang")
-                .sur_name("Ren")
+                .name("Yanng")
+                .sur_name("Yen")
                 .age("19")
-                .hometown("Ningxia_China")
+                .hometown("Ningxia")
                 .doctor(dor2)
                 .imageUrl(p4image)
                 .build());
         List<String> p5image = new ArrayList<>();
-        p5image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141421413-5.jpg?generation=1667110463705382&alt=media"));
+        p5image.add(x);
         p5 = patientRepository.save(Patient.builder()
-                .name("Yifan")
-                .sur_name("Yao")
-                .age("18")
-                .hometown("Jiangsu_China")
+                .name("Yi")
+                .sur_name("Ho")
+                .age("21")
+                .hometown("Jiangsu")
                 .doctor(dor2)
                 .imageUrl(p5image)
                 .build());
         List<String> p6image = new ArrayList<>();
-        p6image.add(new String("https://storage.googleapis.com/download/storage/v1/b/projectimageupload-96213.appspot.com/o/2022-10-30%20141435060-6.jpg?generation=1667110477406833&alt=media"));
+        p6image.add(x);
         p6 = patientRepository.save(Patient.builder()
-                .name("Chong")
-                .sur_name("Zeng")
+                .name("GI")
+                .sur_name("Weng")
                 .age("20")
                 .hometown("Shanghai_China")
                 .doctor(dor2)
                 .imageUrl(p6image)
                 .build());
         p7 = patientRepository.save(Patient.builder()
-                .name("Yongwei")
-                .sur_name("Zhang")
+                .name("Wei")
+                .sur_name("Xang")
                 .age("25")
                 .hometown("Gansu_China")
                 .doctor(dor3)
                 .build());
         p8 = patientRepository.save(Patient.builder()
-                .name("Runlong")
-                .sur_name("Zhou")
+                .name("Rang")
+                .sur_name("Hou")
                 .age("23")
-                .hometown("Yunnan_China")
+                .hometown("Yunnan")
                 .doctor(dor3)
                 .build());
         p9 = patientRepository.save(Patient.builder()
-                .name("Jing")
-                .sur_name("Wang")
+                .name("Ji")
+                .sur_name("Xi")
                 .age("27")
-                .hometown("Guizhou_China")
+                .hometown("Guizhou")
                 .doctor(dor3)
                 .build());
         p10 = patientRepository.save(Patient.builder()
-                .name("Shixiong")
+                .name("Song")
                 .sur_name("Qu")
-                .age("28")
-                .hometown("Hubei_China")
+                .age("18")
+                .hometown("Hubei")
                 .doctor(dor4)
                 .build());
         p11 = patientRepository.save(Patient.builder()
-                .name("Chaoyi")
-                .sur_name("Wang")
+                .name("Yi")
+                .sur_name("Xi")
                 .age("24")
                 .hometown("New York")
                 .doctor(dor4)
                 .build());
         p12 = patientRepository.save(Patient.builder()
-                .name("Dengtao")
+                .name("tao")
                 .sur_name("Wei")
                 .age("20")
                 .hometown("Sichuan_China")
@@ -194,21 +194,21 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
         Vaccine v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12;
         v1 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("inactivated vaccine")
-                .firstdose_time("02-19,2022")
+                .firstdose_time("02-19,2019")
                 .vaccined_status("FirstDose")
                 .patient(p1).build());
         v2 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("vector vaccine")
-                .firstdose_time("09-3,2021")
+                .firstdose_time("09-4,2022")
                 .seconddose_name("vector vaccine")
-                .seconddose_time("10-4,2021")
+                .seconddose_time("10-4,2022")
                 .vaccined_status("SecondDose")
                 .patient(p2).build());
         v3 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("live attenuated vaccine")
-                .firstdose_time("05-19,2022")
+                .firstdose_time("05-19,2019")
                 .seconddose_name("live attenuated vaccine")
-                .seconddose_time("06-20,2022")
+                .seconddose_time("06-20,2019")
                 .vaccined_status("SecondDose")
                 .patient(p3).build());
         v4 = vaccineRepository.save(Vaccine.builder()
@@ -216,58 +216,56 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .patient(p4).build());
         v5 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("inactivated vaccine")
-                .firstdose_time("05-19,2022")
+                .firstdose_time("05-19,2019")
                 .vaccined_status("FirstDose")
                 .patient(p5).build());
         v6 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("live attenuated vaccine")
-                .firstdose_time("08-19,2021")
+                .firstdose_time("08-19,2022")
                 .seconddose_name("live attenuated vaccine")
-                .seconddose_time("09-21,2021")
+                .seconddose_time("09-21,2022")
                 .vaccined_status("SecondDose")
                 .patient(p6).build());
         v7 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("inactivated vaccine")
-                .firstdose_time("04-25,2021")
+                .firstdose_time("04-25,2022")
                 .seconddose_name("inactivated vaccine")
-                .seconddose_time("05-25,2021")
+                .seconddose_time("05-25,2022")
                 .vaccined_status("SecondDose")
                 .patient(p7).build());
         v8 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("live attenuated vaccine")
-                .firstdose_time("05-20,2021")
+                .firstdose_time("05-20,2022")
                 .seconddose_name("live attenuated vaccine")
-                .seconddose_time("06-20,2021")
+                .seconddose_time("06-20,2022")
                 .vaccined_status("SecondDose")
                 .patient(p8).build());
         v9 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("vector vaccine")
-                .firstdose_time("07-5,2022")
+                .firstdose_time("07-5,2019")
                 .seconddose_name("vector vaccine")
-                .seconddose_time("08-5,2022")
+                .seconddose_time("08-5,2019")
                 .vaccined_status("SecondDose")
                 .patient(p9).build());
         v10 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("RNA vaccine")
-                .firstdose_time("06-7,2022")
+                .firstdose_time("06-7,2019")
                 .seconddose_name("RNA vaccine")
-                .seconddose_time("07-8,2022")
+                .seconddose_time("07-8,2019")
                 .vaccined_status("SecondDose")
                 .patient(p10).build());
         v11 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("live attenuated vaccine")
-                .firstdose_time("05-5,2022")
+                .firstdose_time("05-5,2019")
                 .vaccined_status("FirstDose")
                 .patient(p11).build());
         v12 = vaccineRepository.save(Vaccine.builder()
                 .firstdose_name("recombinant protein vaccine")
-                .firstdose_time("07-25,2021")
+                .firstdose_time("07-25,2022")
                 .seconddose_name("recombinant protein vaccine")
-                .seconddose_time("08-25,2021")
+                .seconddose_time("08-25,2022")
                 .vaccined_status("SecondDose")
                 .patient(p12).build());
-//        patientRepository.AddVaccine(v1.getId(),p1.getId());
-//        patientRepository.AddVaccine(v2.getId(),p2.getId());
         //一个病人对应一个疫苗信息
         p1.setVaccineinfo(v1);
         p2.setVaccineinfo(v2);
@@ -453,7 +451,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname ( "admin" )
                 .lastname ( "admin")
                 .email ( "admin@admin.com" ).enabled (true)
-                .lastPasswordResetDate(Date.from(LocalDate.of (2021,01,
+                .lastPasswordResetDate(Date.from(LocalDate.of (2022,01,
                         01).atStartOfDay(ZoneId.systemDefault ()).toInstant()))
                 .build();
 
@@ -464,7 +462,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname ( "doctor" )
                 .lastname ( "doctor")
                 .email ( "enabled@doctor.com" ).enabled (true)
-                .lastPasswordResetDate(Date.from(LocalDate.of (2021,01,
+                .lastPasswordResetDate(Date.from(LocalDate.of (2022,01,
                         01).atStartOfDay(ZoneId.systemDefault ()).toInstant()))
                 .build();
 
@@ -474,7 +472,7 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
                 .firstname ( "patient" )
                 .lastname ( "patient")
                 .email ( "enableUser@patient.com" ).enabled (true)
-                .lastPasswordResetDate(Date.from(LocalDate.of (2021,01,
+                .lastPasswordResetDate(Date.from(LocalDate.of (2022,01,
                         01).atStartOfDay(ZoneId.systemDefault ()).toInstant()))
                 .build();
         authorityRepository.save(authAdmin);
